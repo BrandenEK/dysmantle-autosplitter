@@ -6,7 +6,6 @@ state("DYSMANTLE")
 	float gatekeeperHealth : "prog.dll", 0x005DAF20, 0x00, 0x10, 0x46C;
 }
 
-
 startup 
 {
 	vars.towerValues = new Dictionary<int, string>()
