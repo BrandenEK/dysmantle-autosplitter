@@ -3,7 +3,7 @@ state("DYSMANTLE")
 	int chunkId : "prog.dll", 0x005EA868, 0x00, 0x18C;
 	int numTowers : "prog.dll", 0x005DAC10, 0x190, 0x58, 0x8C;
 	
-	float gatekeeperHealth : "prog.dll", 0x005DAF20, 0x00, 0x10, 0x46C;
+	//float gatekeeperHealth : "prog.dll", 0x005DAF20, 0x00, 0x10, 0x46C;
 }
 
 startup 
@@ -56,8 +56,8 @@ startup
 	settings.Add("poltower", true, "Polaris");
 	settings.Add("frosttower", true, "Frost Horn");
 	
-	settings.CurrentDefaultParent = "bosses";
-	settings.Add("gatekeeper", true, "False Gatekeeper");
+	//settings.CurrentDefaultParent = "bosses";
+	//settings.Add("gatekeeper", true, "False Gatekeeper");
 }
 
 split
@@ -68,11 +68,11 @@ split
 		return true;
 	}
 	
-	//If the gatekeeper has been defeated
+	/*If the gatekeeper has been defeated
 	if (settings["gatekeeper"] && current.gatekeeperHealth <= 0.05 && old.gatekeeperHealth > 0.05)
 	{
 		return true;
-	}
+	}*/
 	
 	return false;
 }
