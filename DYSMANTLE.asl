@@ -13,6 +13,8 @@ state("DYSMANTLE")
 
 startup 
 {
+	vars.lastValidChunkId = 0;
+	
 	vars.towerValues = new Dictionary<int, string>()
 	{
 		{ 2565, "Capernaum" },
@@ -39,31 +41,61 @@ startup
 	
 	vars.campfireValues = new Dictionary<int, string>()
 	{
-		{ 2658, "Home Shelter" },  						//Capernaum
+	//Capernaum
+		{ 2658, "Home Shelter" },
 		{ 2564, "Home Suburb" },
 		{ 2471, "Suburb Truck Yard" },
-		{ 2574, "Evac Site Entrance" },  				//Canaveral
+	//Canaveral
+		{ 2574, "Evac Site Entrance" },
 		{ 2576, "Aerospace Center Inner Courtyard" },
 		{ 2282, "Packard Family Farm" },
 		{ 2861, "Bowel Lake Camping Grounds" },
-		{ 2182, "Lone Field" },  						//Fairwood
+	//Fairwood
+		{ 2182, "Lone Field" },
 		{ 2273, "Lakeside Shack" },
 		{ 1989, "Large House" },
 		{ 1793, "Twin Lakes" },
 		{ 1886, "Wayward Storage Yard" },
 		{ 1897, "Armando's Used Cars" },
 		{ 1509, "Ruins of Ethelridge" },
-		{ 2954, "Southern Cemetery" },					//Hedgefield
+	//Hedgefield
+		{ 2954, "Southern Cemetery" },
 		{ 3045, "Southern Power Station" },
 		{ 3040, "Greyhaven" },
 		{ 3428, "Everglade Bay" },
-		{ 3226, "Blue Ponds Motel" },					//Narrows Vale
+	//Narrows Vale
+		{ 3226, "Blue Ponds Motel" },
 		{ 3126, "Underfield" },
 		{ 3218, "Brook Bridge Campfire" },
 		{ 2828, "West Cutter Campfire" },
 		{ 2930, "Sanctuary Farm Campsite" },
 		{ 2838, "Fincher's Auto Salvage" }
 	};
+	
+	vars.tombValues = new Dictionary<int, string>()
+	{
+		{ 2466, "Capernaum" },
+		{ 2571, "Canaveral" },
+		{ 1595, "Fairwood" },
+		{ 3040, "Hedgefield" },
+		{ 2734, "Narrows Vale" },
+		{ 2428, "Central" },
+		{ 1945, "Westport" },
+		{ 2157, "Crown" },
+		{ 2215, "Vulcan" },
+		{ 4209, "Everglade" },
+		{ 3872, "Sunburn Desert" },
+		{ 3846, "Solaris" },
+		{ 3987, "Serpent's Crossing" },
+		{ 1415, "Borealis" },
+		{ 946, "Arcturus" },
+		{ 1208, "Hibernus" },
+		{ 1485, "Frore" },
+		{ 996, "Polaris" },
+		{ 1549, "Frost Horn Lower" },
+		{ 680, "Frost Horn Upper" }
+	};
+	print("Initialized " + vars.tombValues.Count.ToString() + " tombs.");
 	
 	Dictionary<int, string> campfireRegions = new Dictionary<int, string>()
 	{
@@ -86,6 +118,14 @@ startup
 	foreach (string tower in vars.towerValues.Values)
 	{
 		settings.Add(tower + "_Tower", false, tower);
+	}
+	
+	//Tomb settings
+	
+	settings.CurrentDefaultParent = "tombs";
+	foreach (string tomb in vars.tombValues.Values)
+	{
+		settings.Add(tomb + "_Tomb", false, tomb);
 	}
 	
 	//Campfire settings
@@ -115,15 +155,13 @@ start
 
 split
 {
-	//If the number of towers activated has increased and you are standing near the selected one
+	if (current.chunkId != 0)
+		vars.lastValidChunkId = current.chunkId;
+		
 	bool tower = current.numTowers == old.numTowers + 1 && vars.towerValues.ContainsKey(current.chunkId) && settings[vars.towerValues[current.chunkId] + "_Tower"];
-
-	//If the number of campfires lit has increased and you are standing near the selected one
-	bool campfire = current.numCampfires == old.numCampfires + 1 && vars.campfireValues.ContainsKey(current.chunkId) && settings[vars.campfireValues[current.chunkId]];
-	
-	//If player is in the escape pod and the scene changed
+	bool tomb = current.numTombs == old.numTombs + 1 && vars.tombValues.ContainsKey(vars.lastValidChunkId) && settings[vars.tombValues[vars.lastValidChunkId] + "_Tomb"];
+	bool campfire = current.numCampfires == old.numCampfires + 1 && vars.campfireValues.ContainsKey(current.chunkId) && settings[vars.campfireValues[current.chunkId]];	
 	bool escapePod = settings["escapePod"] && current.playerX == 62071 && current.playerY == 30930 && current.titleEndValue == uint.MaxValue && old.titleEndValue != uint.MaxValue;
-
 	
-	return tower || campfire || escapePod;
+	return tower || tomb || campfire || escapePod;
 }
