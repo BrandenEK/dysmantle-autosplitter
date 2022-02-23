@@ -39,6 +39,31 @@ startup
 	};
 	print("Initialized " + vars.towerValues.Count.ToString() + " towers.");
 	
+	vars.tombValues = new Dictionary<int, string>()
+	{
+		{ 2466, "Capernaum" },
+		{ 2571, "Canaveral" },
+		{ 1595, "Fairwood" },
+		{ 3040, "Hedgefield" },
+		{ 2734, "Narrows Vale" },
+		{ 2428, "Central" },
+		{ 1945, "Westport" },
+		{ 2157, "Crown" },
+		{ 2215, "Vulcan" },
+		{ 4209, "Everglade" },
+		{ 3872, "Sunburn Desert" },
+		{ 3846, "Solaris" },
+		{ 3987, "Serpent's Crossing" },
+		{ 1415, "Borealis" },
+		{ 946, "Arcturus" },
+		{ 1208, "Hibernus" },
+		{ 1485, "Frore" },
+		{ 996, "Polaris" },
+		{ 1549, "Frost Horn Lower" },
+		{ 680, "Frost Horn Upper" }
+	};
+	print("Initialized " + vars.tombValues.Count.ToString() + " tombs.");
+	
 	vars.campfireValues = new Dictionary<int, string>()
 	{
 	//Capernaum
@@ -71,31 +96,6 @@ startup
 		{ 2930, "Sanctuary Farm Campsite" },
 		{ 2838, "Fincher's Auto Salvage" }
 	};
-	
-	vars.tombValues = new Dictionary<int, string>()
-	{
-		{ 2466, "Capernaum" },
-		{ 2571, "Canaveral" },
-		{ 1595, "Fairwood" },
-		{ 3040, "Hedgefield" },
-		{ 2734, "Narrows Vale" },
-		{ 2428, "Central" },
-		{ 1945, "Westport" },
-		{ 2157, "Crown" },
-		{ 2215, "Vulcan" },
-		{ 4209, "Everglade" },
-		{ 3872, "Sunburn Desert" },
-		{ 3846, "Solaris" },
-		{ 3987, "Serpent's Crossing" },
-		{ 1415, "Borealis" },
-		{ 946, "Arcturus" },
-		{ 1208, "Hibernus" },
-		{ 1485, "Frore" },
-		{ 996, "Polaris" },
-		{ 1549, "Frost Horn Lower" },
-		{ 680, "Frost Horn Upper" }
-	};
-	print("Initialized " + vars.tombValues.Count.ToString() + " tombs.");
 	
 	Dictionary<int, string> campfireRegions = new Dictionary<int, string>()
 	{
