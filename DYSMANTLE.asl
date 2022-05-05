@@ -35,7 +35,7 @@ init
 	print("Modules amount: " + col.Count.ToString());
 	
     /*
-	if (modules.First().ModuleMemorySize == 0x01)
+	if (modules.First().ModuleMemorySize == 0x03)
         version = "1.0.2";
     else if (modules.First().ModuleMemorySize == 0x02)
         version = "1.0.3";
@@ -184,7 +184,7 @@ startup
 		{ 0x398, "Hibernus Homestead" },
 	//Undercrown
 		{ 0x6F5, "Tunnel East Entrance" },
-		{ 0x810, "Old Mines Campfire (Don't Use)" },
+		{ 0xFFF810, "Old Mines Campfire (Don't Use)" },
 		{ 0x6EE, "Tunnel West Entrance Campfire" },
 		{ 0x692, "Elevator Bridge Campfire" },
 	//Frore
@@ -212,7 +212,7 @@ startup
 		{ 0x55B, "Polaris Checkpoint Campfire" },
 		{ 0x378, "Wellspring Station Campfire" },
 		{ 0x2B6, "North Star Installation Campfire" },
-		( 0x2BE, "Icy Bridge Campfire" },
+		{ 0x2BE, "Icy Bridge Campfire" },
 		{ 0x4A2, "Polaris Wilderness Campfire" }, //2
 	//Frost Horn
 		{ 0x492, "Lower Pumping Station" },
@@ -222,7 +222,7 @@ startup
 		{ 0x48B, "Hydroelectric Dam" },
 	//Crown
 		{ 0x751, "Crown Station Entrance" },
-		{ 0x810, "Crown Station Center (Don't Use)" },
+		{ 0xFF810, "Crown Station Center (Don't Use)" },
 		{ 0x92C, "The Fortress Campfire" },
 		{ 0x8D1, "Crown Station Overpass" }
 	};
