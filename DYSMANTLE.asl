@@ -102,7 +102,7 @@ startup
 	
 	vars.obeliskValues = new Dictionary<int, string>()
 	{
-		{ 0xB30, "Canaveral" }, //?
+		{ 0xB30, "Canaveral" },
 		{ 0x704, "Fairwood" },
 		{ 0x696, "Hibernus" },
 		{ 0xE2E, "Everglade" },
@@ -132,18 +132,6 @@ startup
 		{ 0x769, "Armando's Used Cars" },
 		{ 0x5E4, "Ruins of Ethelridge" }, //2
 		{ 0x64C, "Curtisfield North" },
-	//Hedgefield
-		{ 0xB8A, "Southern Cemetery" },
-		{ 0xBE5, "Southern Power Station" },
-		{ 0xBE0, "Greyhaven" },
-		{ 0xD64, "Everglade Bay" },
-	//Narrows Vale
-		{ 0xC9A, "Blue Ponds Motel" },
-		{ 0xC36, "Underfield" },
-		{ 0xB16, "Fincher's Auto Salvage" },
-		{ 0xC92, "Brook Bridge Campfire" },
-		{ 0xB72, "Sanctuary Farm Campsite" }, //2
-		{ 0xB0C, "West Cutter Campfire" },
 	//Borealis
 		{ 0x461, "Little Otter" },
 		{ 0x33D, "Wilderness Cabin" },
@@ -154,12 +142,35 @@ startup
 		{ 0x46B, "Northern Checkpoint" },
 		{ 0x413, "Beaver Point" },
 		{ 0x478, "Borealis Traveller Lodge" },
+	//Hibernus
+		{ 0x758, "Hibernus Rest Stop" },
+		{ 0x4B4, "Krebbs' Wood & Timber" },
+		{ 0x398, "Hibernus Homestead" },
+	//Frore
+		{ 0x390, "Chalice Outskirts" },
+		{ 0x20B, "Lone Log Cabin" },
+		{ 0x3EB, "Naval Base Entrance" },
+		{ 0x4AB, "The Ark Entrance" },
+		{ 0x4AF, "Badnews Bay" },
+		{ 0x5C9, "Southern Frore Roadhouse" },
+	//Hedgefield
+		{ 0xB8A, "Southern Cemetery" },
+		{ 0xBE5, "Southern Power Station" },
+		{ 0xBE0, "Greyhaven" },
+		{ 0xD64, "Everglade Bay" },
 	//Everglade
 		{ 0xD70, "Ft. Darrow" },
 		{ 0xDCA, "Gheens" },
 		{ 0xEED, "Overgrown Depot" },
 		{ 0x1013, "Southern Tip" }, //2
 		{ 0xE95, "Holiday Resort" },
+	//Narrows Vale
+		{ 0xC9A, "Blue Ponds Motel" },
+		{ 0xC36, "Underfield" },
+		{ 0xB16, "Fincher's Auto Salvage" },
+		{ 0xC92, "Brook Bridge Campfire" },
+		{ 0xB72, "Sanctuary Farm Campsite" }, //2
+		{ 0xB0C, "West Cutter Campfire" },
 	//Sunburn Desert
 		{ 0xC29, "Pimaville Outskirts" }, //2
 		{ 0xAA2, "Dried Out Farm" },
@@ -167,6 +178,14 @@ startup
 		{ 0xC81, "Diamond Mine" },
 		{ 0xD9C, "Mansion Entrance" },
 		{ 0xECC, "South of Fool's Canyon" },
+	//Serpent's Crossing
+		{ 0xF8F, "Expedition Basecamp" },
+		{ 0xFF6, "Temple Pass" },
+		{ 0xE15, "Vine Ravine" },
+		{ 0x105B, "Beachhead Station" },
+		{ 0x105F, "Mountain Path Entrance" },
+		{ 0xEDF, "Volcano Mouth" },
+		{ 0xF3F, "Volcano Mouth Temple" },
 	//Central
 		{ 0x9E8, "Southern Central Office Building" },
 		{ 0x923, "Destroyed Building" },
@@ -190,36 +209,6 @@ startup
 		{ 0xF6F, "Military Base South Campfire" },
 		{ 0xE49, "Military Airfield Campfire" },
 		{ 0xF0B, "Mercury Installation Campfire" },
-	//Hibernus
-		{ 0x758, "Hibernus Rest Stop" },
-		{ 0x4B4, "Krebbs' Wood & Timber" },
-		{ 0x398, "Hibernus Homestead" },
-	//Undercrown
-		{ 0x6F5, "Tunnel East Entrance" },
-		{ 0xFFF810, "Old Mines Campfire (Don't Use)" },
-		{ 0x6EE, "Tunnel West Entrance Campfire" },
-		{ 0x692, "Elevator Bridge Campfire" },
-	//Frore
-		{ 0x390, "Chalice Outskirts" },
-		{ 0x20B, "Lone Log Cabin" },
-		{ 0x3EB, "Naval Base Entrance" },
-		{ 0x4AB, "The Ark Entrance" },
-		{ 0x4AF, "Badnews Bay" },
-		{ 0x5C9, "Southern Frore Roadhouse" },
-	//Serpent's Crossing
-		{ 0xF8F, "Expedition Basecamp" },
-		{ 0xFF6, "Temple Pass" },
-		{ 0xE15, "Vine Ravine" },
-		{ 0x105B, "Beachhead Station" },
-		{ 0x105F, "Mountain Path Entrance" },
-		{ 0xEDF, "Volcano Mouth" },
-		{ 0xF3F, "Volcano Mouth Temple" },
-	//Vulcan
-		{ 0xA89, "Near Vulcan Ancient Ruins" },
-		{ 0x966, "By the Toxic Pools" },
-		{ 0x90A, "Beach Party" },
-		{ 0x8A5, "Land's End" },
-		{ 0x847, "Caldera" }, //2
 	//Polaris
 		{ 0x55B, "Polaris Checkpoint Campfire" },
 		{ 0x378, "Wellspring Station Campfire" },
@@ -232,6 +221,17 @@ startup
 		{ 0x4E9, "Near the Survivor Island" },
 		{ 0x2A6, "Outside Arcadia" },
 		{ 0x48B, "Hydroelectric Dam" },
+	//Vulcan
+		{ 0xA89, "Near Vulcan Ancient Ruins" },
+		{ 0x966, "By the Toxic Pools" },
+		{ 0x90A, "Beach Party" },
+		{ 0x8A5, "Land's End" },
+		{ 0x847, "Caldera" }, //2
+	//Undercrown
+		{ 0x6F5, "Tunnel East Entrance" },
+		{ 0xFFF810, "Old Mines Campfire (Don't Use)" },
+		{ 0x6EE, "Tunnel West Entrance Campfire" },
+		{ 0x692, "Elevator Bridge Campfire" },
 	//Crown
 		{ 0x751, "Crown Station Entrance" },
 		{ 0xFF810, "Crown Station Center (Don't Use)" },
@@ -244,8 +244,23 @@ startup
 		{ 0, "Capernaum" },
 		{ 3, "Canaveral" },
 		{ 7, "Fairwood" },
-		{ 14, "Hedgefield" },
-		{ 18, "Narrows Vale" }
+		{ 15, "Borealis" },
+		{ 20, "Arcturus" },
+		{ 23, "Hibernus" },
+		{ 26, "Frore" },
+		{ 32, "Hedgefield" },
+		{ 36, "Everglade" },
+		{ 41, "Narrows Vale" },
+		{ 47, "Sunburn Desert" },
+		{ 53, "Serpent's Crossing" },
+		{ 60, "Central" },
+		{ 69, "Westport" },
+		{ 73, "Solaris" },
+		{ 80, "Polaris" },
+		{ 85, "Frost Horn" },
+		{ 90, "Vulcan" },
+		{ 95, "Undercrown" },
+		{ 99, "Crown" }
 	};
 	print("Initialized " + vars.campfireValues.Count.ToString() + " campfires.");
 	
