@@ -8,6 +8,7 @@ state("DYSMANTLE", "1.0.2")
 	
 	int numCampfires : "prog.dll", 0x005DAC10, 0x190, 0x50, 0x8C;
 	int numTowers : "prog.dll", 0x005DAC10, 0x190, 0x58, 0x8C;
+	int numObelisks : "prog.dll", 0x005DAC10, 0x190, 0x78, 0x8C;
 	int numTombs : "prog.dll", 0x005DAC10, 0x190, 0x88, 0x8C;
 	
 	bool isPlaying : "DYSMANTLE.exe", 0x22F018;
@@ -22,6 +23,7 @@ state("DYSMANTLE", "1.0.3")
 	
 	int numCampfires : "prog.dll", 0x005FCFB8, 0x190, 0x50, 0x8C;
 	int numTowers : "prog.dll", 0x005FCFB8, 0x190, 0x58, 0x8C;
+	int numObelisks : "prog.dll", 0x005FCFB8, 0x190, 0x78, 0x8C;
 	int numTombs : "prog.dll", 0x005FCFB8, 0x190, 0x88, 0x8C;
 	
 	bool isPlaying : "DYSMANTLE.exe", 0x22F018;
@@ -98,7 +100,17 @@ startup
 	};
 	print("Initialized " + vars.tombValues.Count.ToString() + " tombs.");
 	
-	//Obelisks SC - 0x105E, W - 0x671, F - 0x696
+	vars.obeliskValues = new Dictionary<int, string>()
+	{
+		{ 0xB30, "Canaveral" }, //?
+		{ 0x704, "Fairwood" },
+		{ 0x696, "Hibernus" },
+		{ 0xE2E, "Everglade" },
+		{ 0xB64, "Sunburn Desert" },
+		{ 0x105E, "Serpent's Crossing" },
+		{ 0x671, "Westport" }
+	};
+	print("Initialized " + vars.obeliskValues.Count.ToString() + " obelisks.");
 	
 	vars.campfireValues = new Dictionary<int, string>()
 	{
@@ -240,6 +252,7 @@ startup
 	settings.Add("escapePod", true, "Escape Pod");
 	settings.Add("towers", true, "Towers");
 	settings.Add("tombs", true, "Tombs");
+	settings.Add("obelisks", true, "Obelisks");
 	settings.Add("campfires", true, "Campfires");
 	settings.Add("bosses", true, "Bosses");	
 	
@@ -257,6 +270,14 @@ startup
 	foreach (string tomb in vars.tombValues.Values)
 	{
 		settings.Add(tomb + "_Tomb", false, tomb);
+	}
+	
+	//Obelisk settings
+	
+	settings.CurrentDefaultParent = "obelisks";
+	foreach (string obelisk in vars.obeliskValues.Values)
+	{
+		settings.Add(obelisk + "_Obelisk", false, obelisk);
 	}
 	
 	//Campfire settings
@@ -310,10 +331,11 @@ split
 		
 	bool tower = current.numTowers == old.numTowers + 1 && vars.towerValues.ContainsKey(current.chunkId) && settings[vars.towerValues[current.chunkId] + "_Tower"];
 	bool tomb = current.numTombs == old.numTombs + 1 && vars.tombValues.ContainsKey(vars.lastValidChunkId) && settings[vars.tombValues[vars.lastValidChunkId] + "_Tomb"];
+	bool obelisk = current.numObelisks == old.numObelisks + 1 && vars.obeliskValues.ContainsKey(vars.chunkId) && settings[vars.obeliskValues[vars.chunkId] + "_Obelisk"];
 	bool campfire = current.numCampfires == old.numCampfires + 1 && vars.campfireValues.ContainsKey(current.chunkId) && settings[vars.campfireValues[current.chunkId]];	
 	bool escapePod = settings["escapePod"] && current.playerX == 62071 && current.playerY == 30930 && current.titleEndValue == uint.MaxValue && old.titleEndValue != uint.MaxValue;
 	
-	return tower || tomb || campfire || escapePod;
+	return tower || tomb || obelisk || campfire || escapePod;
 }
 
 isLoading
