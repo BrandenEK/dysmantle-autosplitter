@@ -3,8 +3,8 @@ state("DYSMANTLE", "1.0.2")
 {
 	int chunkId : "prog.dll", 0x005EA868, 0x00, 0x18C;
 	uint titleEndValue : "prog.dll", 0x005EA868, 0x00, 0x198;
-	float playerX : "prog.dll", 0x005DAE28;
-	float playerY : "prog.dll", 0x005DAE2C;
+	float playerX : "prog.dll", 0x005DAC10, 0x48, 0x00, 0x18, 0x68;
+	float playerY : "prog.dll", 0x005DAC10, 0x48, 0x00, 0x18, 0x6C;
 	
 	int numCampfires : "prog.dll", 0x005DAC10, 0x190, 0x50, 0x8C;
 	int numTowers : "prog.dll", 0x005DAC10, 0x190, 0x58, 0x8C;
@@ -18,8 +18,8 @@ state("DYSMANTLE", "1.0.3")
 {
 	int chunkId : "prog.dll", 0x0060CE98, 0x00, 0x18C;
 	uint titleEndValue : "prog.dll", 0x0060CE98, 0x00, 0x198;
-	float playerX : "prog.dll", 0x005DAE28;  //fix
-	float playerY : "prog.dll", 0x005DAE2C;  //fix
+	float playerX : "prog.dll", 0x005FCFB8, 0x48, 0x00, 0x18, 0x68;
+	float playerY : "prog.dll", 0x005FCFB8, 0x48, 0x00, 0x18, 0x6C;
 	
 	int numCampfires : "prog.dll", 0x005FCFB8, 0x190, 0x50, 0x8C;
 	int numTowers : "prog.dll", 0x005FCFB8, 0x190, 0x58, 0x8C;
@@ -48,15 +48,12 @@ init
 	switch (size)
 	{
 		case 6537216:
-			version = "1.0.2";
-			break;
+			version = "1.0.2"; break;
 		case 6672384:
 		case 6680576:
-			version = "1.0.3";
-			break;
+			version = "1.0.3"; break;
 		default:
-			version = "Unknown";
-			break;
+			version = "Unknown"; break;
 	}
 }
 
