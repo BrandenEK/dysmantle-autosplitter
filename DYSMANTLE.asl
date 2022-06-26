@@ -29,6 +29,21 @@ state("DYSMANTLE", "1.0.3")
 	bool isPlaying : "DYSMANTLE.exe", 0x22F018;
 }
 
+state("DYSMANTLE", "1.0.4")
+{
+	int chunkId : "prog.dll", 0x00626378, 0x00, 0x18C;
+	uint titleEndValue : "prog.dll", 0x00626378, 0x00, 0x198;
+	float playerX : "prog.dll", 0x006163E0, 0x48, 0x00, 0x18, 0x68;
+	float playerY : "prog.dll", 0x006163E0, 0x48, 0x00, 0x18, 0x6C;
+	
+	int numCampfires : "prog.dll", 0x006163E0, 0x198, 0x50, 0x8C;
+	int numTowers : "prog.dll", 0x006163E0, 0x198, 0x58, 0x8C;
+	int numObelisks : "prog.dll", 0x006163E0, 0x198, 0x78, 0x8C;
+	int numTombs : "prog.dll", 0x006163E0, 0x198, 0x88, 0x8C;
+	
+	bool isPlaying : "DYSMANTLE.exe", 0x232AA8;
+}
+
 init
 {	
 	ProcessModuleCollection col = game.Modules;
@@ -52,6 +67,8 @@ init
 		case 6672384:
 		case 6680576:
 			version = "1.0.3"; break;
+		case 6787072:
+			version = "1.0.4"; break;
 		default:
 			version = "Unknown"; break;
 	}
