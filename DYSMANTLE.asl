@@ -41,7 +41,7 @@ state("DYSMANTLE", "1.0.4")
 	int numObelisks : "prog.dll", 0x006163E0, 0x198, 0x78, 0x8C;
 	int numTombs : "prog.dll", 0x006163E0, 0x198, 0x88, 0x8C;
 	
-	bool isPlaying : "DYSMANTLE.exe", 0x232AA8;
+	bool isPlaying : "DYSMANTLE.exe", 0x233238;
 }
 
 init
