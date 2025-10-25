@@ -44,6 +44,21 @@ state("DYSMANTLE", "1.0.4")
 	bool isPlaying : "DYSMANTLE.exe", 0x233238;
 }
 
+state("DYSMANTLE", "1.4.1.8")
+{
+	int chunkId : "prog.dll", 0;
+	uint titleEndValue : "prog.dll", 0;
+	float playerX : "prog.dll", 0;
+	float playerY : "prog.dll", 0;
+	
+	int numCampfires : "prog.dll", 0;
+	int numTowers : "prog.dll", 0;
+	int numObelisks : "prog.dll", 0;
+	int numTombs : "prog.dll", 0;
+	
+	bool isPlaying : "prog.dll", 0x007408C8, 0x58;
+}
+
 init
 {	
 	ProcessModuleCollection col = game.Modules;
