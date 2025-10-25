@@ -1,4 +1,19 @@
 
+state("DYSMANTLE", "Unknown")
+{
+    int chunkId : 0;
+    uint titleEndValue : 0;
+    float playerX : 0;
+    float playerY : 0;
+
+    int numCampfires : 0;
+    int numTowers : 0;
+    int numObelisks : 0;
+    int numTombs : 0;
+
+    bool isPlaying : 0;
+}
+
 state("DYSMANTLE", "1.0.2")
 {
     int chunkId : "prog.dll", 0x005EA868, 0x00, 0x18C;
