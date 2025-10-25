@@ -61,31 +61,17 @@ state("DYSMANTLE", "1.4.1.8")
 
 init
 {
-    ProcessModuleCollection col = game.Modules;
-    long size = 0;
-
-    for (int i = 0; i < col.Count; i++)
-    {
-        if (col[i].ModuleName == "prog.dll")
-        {
-            print("Prog.dll size: " + col[i].ModuleMemorySize.ToString());
-            size = col[i].ModuleMemorySize;
-        }
-    }
-    if (size == 0)
-        print("Prog.dll not found!");
-
+    int size = modules.First(x => x.ModuleName == "prog.dll").ModuleMemorySize;
+    print("DYSMANTLE module size: " + size);
+    
     switch (size)
     {
-        case 6537216:
-            version = "1.0.2"; break;
-        case 6672384:
-        case 6680576:
-            version = "1.0.3"; break;
-        case 6787072:
-            version = "1.0.4"; break;
-        default:
-            version = "Unknown"; break;
+        case 6537216:  version = "1.0.2";    break;
+        case 6672384:  version = "1.0.3";    break;
+        case 6680576:  version = "1.0.3";    break;
+        case 6787072:  version = "1.0.4";    break;
+        case 8118272:  version = "1.4.1.8";  break;
+        default:       version = "Unknown";  break;
     }
 }
 
